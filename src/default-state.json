@@ -6,19 +6,30 @@
       "cards": [
         {
           "id": "1558196631373",
-          "title": "Master React state",
-          "description": "It looks like it's come a long way. The Context API seems cool."
+          "title": "Create Form ",
+          "description": "Create form using HTML5 and CSS3 with proper validation."
         }
       ],
       "id": "1558196569460",
-      "title": "Doing"
+      "title": "To Do"
     },
     {
       "cards": [
         {
           "id": "1558196662573",
-          "title": "Learn enough React to make a mess",
-          "description": "The \"prop drilling\" struggle is _real_."
+          "title": "Add CSS Rules",
+          "description": "Add CSS rules for newly added element."
+        }
+      ],
+      "id": "1558196570597",
+      "title": "In Progress"
+    },
+    {
+      "cards": [
+        {
+          "id": "1558196662573",
+          "title": "Add Dependency",
+          "description": "Add dependency for new functionality."
         }
       ],
       "id": "1558196570597",
@@ -29,13 +40,8 @@
     "cards": [
       {
         "id": "1558196597470",
-        "title": "Learn Redux",
-        "description": "I heard that it can help, but it looks like it has a lot of boilerplate!"
-      },
-      {
-        "id": "1558196612656",
-        "title": "Learn MobX",
-        "description": "I heard that's what all of the cool kids were doing these days."
+        "title": "Spike task for new framework",
+        "description": "Try new UI framework."
       }
     ],
     "id": "1558167577543",
@@ -44,12 +50,12 @@
   "users": [
     {
       "id": "1",
-      "name": "Steve Kinney",
+      "name": "Steve",
       "email": "hello@stevekinney.net"
     },
     {
       "id": "2",
-      "name": "Marc Grabanski",
+      "name": "Marc",
       "email": "m@marcgrabanski.com"
     }
   ]
