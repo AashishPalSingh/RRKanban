@@ -96,13 +96,21 @@ input[type='submit'] {
 }
 
 .Application {
-  display: flex;
+  display: grid;
+  grid-gap: 10px;
   margin: 0.5em;
+  overflow: hidden;
+  grid-template-columns: 1fr 2fr 1fr;
 }
 
 .toggle-options {
   @include button-style($list-color);
   color: darken($list-color, 50%);
+}
+
+.backlog {
+  grid-column: 4/5;
+  grid-row: 1/2;
 }
 
 .Card {
@@ -140,7 +148,6 @@ input[type='submit'] {
   background-color: $list-color;
   display: flex;
   margin-bottom: 1em;
-  min-width: 400px;
   padding: 0.5em;
   width: 100%;
   @include box-shadow($list-color);
@@ -161,20 +168,60 @@ input[type='submit'] {
   flex: 1;
 }
 
+.ListBlock {
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+
 .List {
   background-color: $list-color;
   border: 1px solid darken($list-color, 10%);
-  height: 100%;
-  margin-right: 0.5em;
   padding: 0.5em;
-  width: 250px;
+  flex-grow: 1;
+  font-size: 1em;
+  width: 1em;
+  flex-basis: 0;
+  transition: flex-grow .3s;
   @include box-shadow($list-color);
+
+  &:hover {
+    flex-grow: 5;
+    transition: flex-grow .3s;
+
+    h2 {
+      transform: rotate(-1800deg) !important;
+    }
+
+    .CreateCard {
+      display: block !important;
+    }
+
+    div {
+      display: block !important;
+    }
+  }
+
+  h2 {
+    transform: rotate(90deg);
+    white-space: nowrap;
+    transform-origin: bottom left;
+  }
+
+  .CreateCard {
+    display: none;
+  }
+
+  div {
+    display: none;
+  }
 }
 
 .Lists {
   display: flex;
   height: 100%;
   width: 100%;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
 
 .User {
@@ -206,10 +253,10 @@ input[type='submit'] {
   background-color: $card-color;
   border: 1px solid darken($card-color, 10%);
   height: 100%;
-  margin-left: 1em;
-  min-width: 300px;
   padding: 1em;
-  width: 300px;
+  grid-column: 3/4;
+  grid-row: 1/2;
+
   @include box-shadow($card-color);
 
   h2 {
@@ -226,10 +273,9 @@ input[type='submit'] {
   background-color: $card-color;
   border: 1px solid darken($card-color, 10%);
   height: 100%;
-  margin-right: 1em;
-  min-width: 300px;
   padding: 1em;
-  width: 300px;
+  grid-column: 1/2;
+  grid-row: 1/2;
   @include box-shadow($card-color);
 
   h2 {
@@ -240,4 +286,78 @@ input[type='submit'] {
     padding-bottom: 0.5em;
     text-align: center;
   }
+}
+
+@media only screen and (max-width: 1100px) {
+  .Application {
+    display: grid;
+    width: auto;
+    grid-template-columns: 100%;
+  }
+
+  .Users {
+    grid-row: 1/2;
+    grid-column: 1/2;
+    width: auto;
+    height: 100%;
+    transition: height 0.15s ease-out;
+    overflow: hidden;
+
+    .User {
+      max-height: 0;
+      transition: max-height 0.15s ease-out;
+      overflow: hidden;
+      visibility: hidden;
+
+    }
+
+    .CreateUser {
+      max-height: 0;
+      transition: max-height 0.15s ease-out;
+      overflow: hidden;
+      visibility: hidden;
+    }
+
+    &:hover {
+      .User {
+        max-height: 100%;
+        transition: max-height 0.15s ease-out;
+        visibility: visible;
+      }
+
+      .CreateUser {
+        max-height: 100%;
+        transition: max-height 0.15s ease-out;
+        visibility: visible;
+      }
+    }
+  }
+
+  .ListBlock {
+    grid-row: 2/3;
+    grid-column: 1/2;
+    width: auto;
+
+    .Lists {
+      flex-wrap: wrap;
+      flex-direction: column;
+    }
+
+    .List {
+      width: initial;
+
+      h2 {
+        transform: initial;
+        text-align: center;
+      }
+    }
+  }
+
+  .backlog {
+    grid-row: 3/4;
+    grid-column: 1/2;
+    width: auto;
+  }
+
+
 }
