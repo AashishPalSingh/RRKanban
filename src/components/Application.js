@@ -10,9 +10,8 @@ class Application extends Component {
   render() {
     return (
       <main className="Application">
-        <div>{/* Users will go here! */}</div>
         <UsersContainer />
-        <section>
+        <section className="ListBlock">
           <CreateListContainer />
           <ListsContainer />
         </section>
