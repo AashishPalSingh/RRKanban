@@ -178,6 +178,8 @@ input[type='submit'] {
   border: 1px solid darken($list-color, 10%);
   padding: 0.5em;
   flex-grow: 1;
+  font-size: 1em;
+  width: 1em;
   flex-basis: 0;
   transition: flex-grow .3s;
   @include box-shadow($list-color);
@@ -201,6 +203,7 @@ input[type='submit'] {
 
   h2 {
     transform: rotate(90deg);
+    white-space: nowrap;
     transform-origin: bottom left;
   }
 
@@ -334,6 +337,20 @@ input[type='submit'] {
     grid-row: 2/3;
     grid-column: 1/2;
     width: auto;
+
+    .Lists {
+      flex-wrap: wrap;
+      flex-direction: column;
+    }
+
+    .List {
+      width: initial;
+
+      h2 {
+        transform: initial;
+        text-align: center;
+      }
+    }
   }
 
   .backlog {
