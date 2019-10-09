@@ -1,5 +1,7 @@
 const { resolve } = require('path');
+import webpack from 'webpack';
 const { getIfUtils } = require('webpack-config-utils');
+import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = env => {
   const { ifProd } = getIfUtils(env);
@@ -9,7 +11,8 @@ module.exports = env => {
     output: {
       path: resolve('dist'),
       filename: 'bundle.js',
-      publicPath: '/dist',
+      libraryTarget: 'umd',
+        library: 'UIPBoard'
     },
     devtool: ifProd('source-map', 'eval'),
     resolve: {
@@ -20,7 +23,18 @@ module.exports = env => {
         template: './index.html',
         filename: './index.html',
       }),
+      new webpack.LoaderOptionsPlugin({
+        minimize: true,
+        debug: true
+    })
     ],
+    optimization: {
+      minimizer: [
+          new UglifyJsPlugin({
+              sourceMap: true
+          })
+      ]
+  },
     module: {
       rules: [
         /**

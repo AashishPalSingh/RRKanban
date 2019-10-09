@@ -21,7 +21,8 @@
     "redux-thunk": "^2.3.0",
     "rxjs": "^6.5.2",
     "sass-loader": "^8.0.0",
-    "style-loader": "^1.0.0"
+    "style-loader": "^1.0.0",
+    "uglifyjs-webpack-plugin": "^2.2.0"
   },
   "scripts": {
     "build": "webpack --env.prod -p",

@@ -32,10 +32,11 @@ class Card extends Component {
       return onAddCard(newListId, card);
     };
     const isInBacklog = listId === '1558167577543';
+    const objectId=card.id;
+    const link="javascript:App.routing.open(\""+ objectId +"\")";
     return (
       <article className="Card">
-        <h3>{card.title}</h3>
-        <CardAssignmentContainer key={card.id} cardId={card.id} />
+        <h3><a href={link}>{card.title}</a></h3>
         <div className="Card-description">{card.description}</div>
         {showOptions && (
           <div className="Card-options">
