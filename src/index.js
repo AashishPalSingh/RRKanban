@@ -7,6 +7,7 @@ import './index.scss';
 /* eslint-disable no-underscore-dangle */
 import { createStore } from 'redux';
 /* eslint-enable */
+import './index.scss';
 import { Provider } from 'react-redux';
 const store = createStore(
   rootReducer,
